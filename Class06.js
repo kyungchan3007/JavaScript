@@ -20,6 +20,7 @@ if (true) {
     let let3 = 3; // 중첩된 코드 블록 내에서 선언한 변수
   }
 }
+
 console.log(let1); // 1
 console.log(let2); // ReferenceError: let2 is not defined
 console.log(let3);
