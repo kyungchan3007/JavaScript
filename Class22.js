@@ -55,3 +55,11 @@ Promise.all(
   .then((users) => users.map((user) => user.name))
   .then(console.log)
   .catch(console.error);
+
+Promise.race([
+  new Promise((resolve) => setTimeout(() => resolve(1), 3000)),
+  new Promise((resolve) => setTimeout(() => resolve(2), 3000)),
+  new Promise((resolve) => setTimeout(() => resolve(3), 3000)),
+])
+  .then(console.log)
+  .catch(console.log);
