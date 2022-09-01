@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li class="apple">Apple</li>
+      <li class="banana">banana</li>
+      <li class="orange">orange</li>
+    </ul>
+    <script>
+      //class 값이 fruit 인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.
+      const $elems = document.getElementsByClassName("fruits");
+      // 취득한 모든 요소 CSScolor 프로퍼티 값을 변경한다.
+
+      [...$elems].forEach((elems) => {
+        elems.style.color = "red";
+      });
+
+      //class 값이 fruit 인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.
+      const $apples = document.getElementsByClassName("fruits apple");
+      // 취득한 요소 CSScolor 프로퍼티 값을 변경한다.
+      [...$apples].forEach((elems) => {
+        elems.style.color = "blue";
+      });
+    </script>
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li class="fruits apple">Apple</li>
+      <li class="fruits banana">banana</li>
+      <li class="fruits orange">orange</li>
+    </ul>
+    <ul>
+      <li>HTML</li>
+    </ul>
+    <script>
+      //class 값이 fruit 인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.
+      const $elems = document.getElementsByClassName("fruits");
+      // 취득한 모든 요소 CSScolor 프로퍼티 값을 변경한다.
+
+      [...$elems].forEach((elems) => {
+        elems.style.color = "red";
+      });
+
+      //class 값이 fruit 인 요소 노드를 모두 탐색하여 HTMLCollection 객체에 담아 반환한다.
+      const $apples = document.getElementsByClassName("fruits apple");
+      // 취득한 요소 CSScolor 프로퍼티 값을 변경한다.
+      [...$apples].forEach((elems) => {
+        elems.style.color = "blue";
+      });
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <ul id="furits">
+      <li>Apple</li>
+      <li>Banana</li>
+      <li>Orange</li>
+    </ul>
+    <ul>
+      <li>HTML</li>
+    </ul>
+    <script>
+      //dom 전체에 태그 이름이 li 요소 노드를 찾아 반환한다.
+      const $lisFormDocument = document.getElementsByTagName("li");
+      console.log($lisFormDocument);
+      //ul #furits 요소의 자손 노드 중에서 태그 이름인 li인 요소 노드를 모두 탐색하여 반환한다.
+      const $fruits = document.getElementById("furits");
+      const $list = $fruits.getElementsByTagName("li");
+      console.log($list);
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li id="Apple">Apple</li>
+      <li id="banana">banana</li>
+      <li id="orange">orange</li>
+    </ul>
+    <script>
+      const $elem = document.getElementsByTagName("li");
+      //첫번째 li 요소가 파싱되어 생성된 요소 노드가 반환된다.
+      [...$elem].forEach((elem) => {
+        elem.style.color = "red";
+      });
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li id="banana">Apple</li>
+      <li id="banana">banana</li>
+      <li id="banana">orange</li>
+    </ul>
+    <script>
+      const $elem = document.getElementById("banana");
+      //첫번째 li 요소가 파싱되어 생성된 요소 노드가 반환된다.
+      $elem.style.color = "red";
+    </script>
+  </body>
+</html> 
+-->
+
+<!-- <!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li id="banana">Apple</li>
+      <li id="banana">banana</li>
+      <li id="banana">orange</li>
+    </ul>
+    <script>
+      const $elem = document.getElementById("grape");
+      $elem.style.color = "red";
+    </script>
+  </body>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <li id="foo">foo</li>
+    <script>
+
+        //id 값과 동일한 이름의 전역 변수가 암묵적으로 선언되고 해당 노드 객채게 할당된다.
+        console.log(foo === document.getElementById('foo'));
+        // 암묵적으로 전역으로 생성된 전역 프로퍼티는 삭제되지만 전역 변수는 삭제되지 않는다.
+        delete foo;
+        console.log(foo);
+    </script>
+  </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+ <html>
+  <body>
+    <ul>
+      <li id="foo">foo</li>
+    <script>
+        let foo = 1;
+        // id 값과 동일한 이름의 전역변수가 이미 선언되어 있으면 노드 객체가 재할당 되지 않는다.
+        console.log(foo);   
+    </script>
+  </body>
+</html> -->
