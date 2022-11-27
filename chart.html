@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+  <body>
+    <canvas id="myChart" width="400" height="400"></canvas>
+    <script>
+      const ctx = document.getElementById("myChart").getContext("2d");
+      const DATA_COUNT = 7;
+      const NUMBER_CFG = { count: DATA_COUNT, min: 0, max: 100 };
+
+      const labels = [];
+      const days = new Date();
+      const sunday = days.getTime() - 86400000 * days.getDay();
+      days.setTime(sunday);
+      const mon = "월";
+      const day = "일";
+      const result = [days.toISOString().slice(5, 10).replace("-", mon)];
+
+      for (let i = 0; i < 7; i++) {
+        days.setTime(days.getTime() + 86400000);
+        result.push(
+          days.toISOString().slice(5, 10).replace("-", mon).concat(day)
+        );
+      }
+
+      const data = {
+        labels: result,
+        datasets: [
+          {
+            type: "bar",
+            label: "Dataset 1",
+            backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
+            borderColor: Utils.CHART_COLORS.red,
+            data: Utils.numbers(NUMBER_CFG),
+          },
+          {
+            type: "bar",
+            label: "Dataset 2",
+            backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
+            borderColor: Utils.CHART_COLORS.blue,
+            data: Utils.numbers(NUMBER_CFG),
+          },
+          {
+            type: "line",
+            label: "Dataset 3",
+            backgroundColor: Utils.transparentize(
+              Utils.CHART_COLORS.green,
+              0.5
+            ),
+            borderColor: Utils.CHART_COLORS.green,
+            fill: false,
+            data: Utils.numbers(NUMBER_CFG),
+          },
+        ],
+      };
+
+      const myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [
+            {
+              label: "# of Votes",
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(255, 206, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+                "rgba(255, 159, 64, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
