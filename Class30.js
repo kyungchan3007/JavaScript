@@ -96,9 +96,6 @@ const carNumber = (car, day) => {
       answer++;
     }
   }
-
-  console.log(carArr, "차량 ");
-  console.log(answer, " 총 차량 대수");
   return answer;
 };
 
