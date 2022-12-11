@@ -60,12 +60,14 @@ const capitalLetter2 = (v) => {
   console.log(result);
 };
 
+//A를 모두 샾으로
 const capitalLetter3 = (s) => {
   let result = s;
   result = result.replace(/A/g, "#");
   console.log(result);
 };
 
+//문자열에 몇개 존재하는지
 const findLetter = (v, s) => {
   let count = 0;
   let result = "";
@@ -75,6 +77,15 @@ const findLetter = (v, s) => {
   console.log(count);
 };
 
+const findLetter2 = (s, v) => {
+  let count = 0;
+  let result = "";
+
+  result = s.split(v).length - 1;
+  return result;
+};
+
+//대문자 갯수 찾기
 const capitalLetterFind = (v) => {
   let count = 0;
   for (let x of v) {
@@ -83,6 +94,9 @@ const capitalLetterFind = (v) => {
   console.log(count);
 };
 
+//대문자 갯수 찾기
+// 아스키 코드 대문자 : 65 ~ 90
+// 아스키 코드 소문자 : 97 ~ 122
 const capitalLetterFind2 = (v) => {
   let count = 0;
   for (let x of v) {
@@ -106,6 +120,16 @@ const latterUppercase = (t) => {
   console.log(result);
 };
 
+const latterUppercase3 = (t) => {
+  let result = "";
+  for (let x of t) {
+    let num = x.charCodeAt();
+    if (num > 96 && num <= 122) result += String.fromCharCode(num - 32);
+    else result += x;
+  }
+  console.log(result);
+};
+
 const latterUppercase2 = (t) => {
   let result = "";
   for (let x of t) {
@@ -115,4 +139,38 @@ const latterUppercase2 = (t) => {
   console.log(result);
 };
 
-latterUppercase2("Orange");
+// 가장 긴 문장 찾기
+const naturlNumber = (arr) => {
+  let result;
+  let max = 0;
+  for (let x of arr) {
+    console.log(x.length);
+    if (x.length > max) {
+      max = x.length;
+      result = x;
+    }
+  }
+  console.log(result);
+};
+
+const str = ["teacher", "time", "student", "beatiful", "godd"];
+
+// 가운데 문자 출력 : 짝수일때 2개 홀수일때 1개
+const substr = (str) => {
+  let result = "";
+
+  str.length % 2 === 0
+    ? (result = str[str.length / 2 - 1] + str[str.length / 2])
+    : (result = str[Math.floor(str.length / 2)]);
+
+  console.log(result);
+};
+
+// const overlapStr = (str) => {
+//   let result = "";
+//   let overlap = "";
+//   for (let i = 0; i < str.length; i++) {
+//     if (str.indexOf(str[i] === i)) console.log(str[i]);
+//   }
+// };
+// overlapStr("vvfkgkvfs");
