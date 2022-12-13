@@ -77,11 +77,13 @@ const findLetter = (v, s) => {
   console.log(count);
 };
 
+//입력 받은 문자열이 특정 문자열을 입력 받았을때 입력받은 문자열에 동일한 문자열이 몇개 있는지
 const findLetter2 = (s, v) => {
   let count = 0;
   let result = "";
 
   result = s.split(v).length - 1;
+  console.log(result);
   return result;
 };
 
@@ -166,11 +168,27 @@ const substr = (str) => {
   console.log(result);
 };
 
-// const overlapStr = (str) => {
-//   let result = "";
-//   let overlap = "";
-//   for (let i = 0; i < str.length; i++) {
-//     if (str.indexOf(str[i] === i)) console.log(str[i]);
-//   }
-// };
-// overlapStr("vvfkgkvfs");
+//중복문자열 제거하기
+const overlep = (t) => {
+  let result = "";
+
+  for (let i = 0; i < t.length; i++) {
+    if (t.indexOf(t[i]) === i) {
+      result += t[i];
+    }
+  }
+  console.log(result);
+};
+
+//중복단어제거
+const overleps = (t) => {
+  let result = "";
+  result = t.filter((el, i) => {
+    if (t.indexOf(el) === i) {
+      return true;
+    }
+  });
+  console.log(result);
+};
+
+overleps(["good", "time", "good", "time", "student"]);
